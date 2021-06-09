@@ -29,17 +29,24 @@
         }
         body {
           color:white;
-          background-image: url('/static/img/bg.jpg');
+          
+          
+          background:  url('/static/img/bg.jpg')  ;
           background-size: cover;
+          
+          
           
           
           
         }
 
+        label {
+          font-family: 'Fira Sans';
+        }
         h3 {
             text-align: center;
-            font-family: 'Bree Serif';
-            color: #0681f5;
+            font-family: 'Fira Sans';
+            color: #fff9f9;
             font-size: 20px;
             
         }
@@ -55,6 +62,11 @@
         margin-left: 2px;
         margin-right: 0px;
         margin-bottom: 0px;
+        
+      }
+
+      .nav-item {
+        background-color: aliceblue;
       }
 
       select {
@@ -77,6 +89,8 @@
 
       header {
         margin-bottom: 20px;
+        position: relative;
+        
       }
 
       #principal {
@@ -87,6 +101,7 @@
         
       }
 
+     
       .container-fluid {
         margin-top: 100px;
         display: block;
@@ -95,18 +110,41 @@
         align-items: center;
         justify-content: space-between;
         font-size: 13px  ;
+        
       }
       
       #link-footer {
         text-decoration: none;
-        color: rgb(167, 166, 180);
+        color: rgb(183, 182, 194);
       }
 
       #link-footer:hover {
         color: white;
       }
 
-      
+     .container {
+       margin-top:100px;
+       margin-bottom: 100px;
+       
+     }
+
+     #exampleFormControlSelect1 {
+       text-align: center;
+     }
+
+     .header {
+       margin-top: 10px;
+       background-color:rgb(8, 150, 245)
+     }
+
+      .dropdown-menu {
+       background-color: rgb(2, 113, 187);
+       
+     }
+      .dropdown-item {
+        color:rgb(235, 235, 235);
+        font-style:oblique;
+      }
     </style>
   </head>
 
@@ -114,70 +152,135 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary"  style="background-color: rgb(58, 146, 218);">
-        <a class="navbar-brand" href="#"><img src="/static/img/Logo-upe.png" width="100" height= "70"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active ">
-              <a class="nav-link badge-primary active" href="/" >Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item ">
-              <a class="nav-link badge-primary active" href="http://www.upe.br/" target="_blank">UPE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link badge-primary active" href="http://ramais.upe.br/sistema/" target="_blank">Ramais</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle badge-primary active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Outros serviços
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCHrhVJTtSBnpbGrTRnxLcHhdvZnGDVGFfTbsqbXXLHfvJrhxkHlldLWxcBmHnHTBzbFBRRL">Email do suporte NCTI</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
+      <div class="fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary"  style="background-color: rgb(58, 146, 218);">
+          <a class="navbar-brand" href="#"><img src="/static/img/Logo-upe.png" width="80" height= "50"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             
-          </ul>
-          
-        </div>
-      </nav>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active ">
+                <a class="nav-link badge-primary active" href="/" >Home <span class="sr-only">(current)</span></a>
+              </li>
+              
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle badge-primary active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Outros serviços
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="http://www.upe.br/" target="_blank">Site UPE</a>
+                  <a class="dropdown-item" href="http://ramais.upe.br/sistema/" target="_blank">Site UPE-Ramais</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCHrhVJTtSBnpbGrTRnxLcHhdvZnGDVGFfTbsqbXXLHfvJrhxkHlldLWxcBmHnHTBzbFBRRL">Reportar problema</a>
+                </div>
+              </li>
+              
+            </ul>
+            
+          </div>
+        </nav>
+      </div>
     </header>
 
     <div class="container">
       <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4" id="principal">
-          <h3>Eleições UPE</h3>
-          <h5>Campus Mata Sul</h5>
+          <div class="header"><h3>AGENDE AQUI</h3></div>
+          
+    
           <form method="POST" action="">
             <div class="form-group">
-              <label for="exampleFormControlInput1">Email:</label>
-              <input type="email" class="form-control" id="exampleFormControlInput1" required="required" placeholder="name@example.com" name="email">
+              <label for="exampleFormControlInput1">Matricula:</label>
+              <input type="text"  pattern="[0-9]{6}" class="form-control" id="exampleFormControlInput1" required="required" placeholder="" name="matricula">
             </div>
             <div class="form-group">
-              <label for="exampleFormControlInput1">Frutas:</label>
-              <input type="name" class="form-control" id="exampleFormControlInput1" required="required" placeholder="name@example.com" name="frutas">
+              <label for="exampleFormControlInput1">Nome completo:</label>
+              <input type="text" class="form-control" id="exampleFormControlInput2" required="required" placeholder="" name="nomecompleto">
             </div>
             <div class="form-group">
-              <label for="exampleFormControlInput1">Caldas:</label>
-              <input type="name" class="form-control" id="exampleFormControlInput1" required="required" placeholder="name@example.com" name="caldas">
+              <label for="exampleFormControlInput1">Email institucional:</label>
+              <input type="email" pattern=".+@upe.br" class="form-control" id="exampleFormControlInput3" required="required" placeholder="@upe.br" name="email">
             </div>
             <div class="form-group">
-              <label for="exampleFormControlSelect1">Selecione outra opção:</label>
-              <select class="form-control" id="exampleFormControlSelect1" required="required" name="outro">
-                <option value="Maçã">Maçã</option>
-                <option value="Morango">Morango</option>
-                <option value="Chocolate">Chocolate</option>
-                <option value="Manga">Manga</option>
-                <option value="Maracujá">Maracujá</option>
+              <label for="exampleFormControlInput1">Nome da comissão:</label>
+              <input type="name" class="form-control" id="exampleFormControlInput4" required="required" placeholder="" name="nomecomissao">
+            </div>
+            <div class="form-group form-row">
+              <div class="col">
+                <label for="exampleFormControlSelect1">Escolha o campus:</label>
+              <select class="form-control" id="exampleFormControlSelect1" required="required" name="campus">
+                
+                <option >Campus</option>
+                <option value="Arcoverde">Arcoverde</option>
+                <option value="Benfica">Benfica</option>
+                <option value="Camaragibe">Camaragibe</option>
+                <option value="Caruaru">Caruaru</option>
+                <option value="Garanhuns">Garanhuns</option>
+                <option value="Mata Norte">Mata Norte</option>
+                <option value="Mata Sul">Mata Sul</option>
+                <option value="Salgueiro">Salgueiro</option>
+                <option value="Petrolina">Petrolina</option>
+                <option value="Santo Amaro">Santo Amaro</option>
+                <option value="Serra Talhada">Serra Telhada</option>
+
               </select>
+              </div>
+              <div class="col">           
+                <label for="exampleFormControlSelect1">Escolha a unidade:</label>
+                <select class="form-control" id="exampleFormControlSelect1" required="required" name="unidade">
+                  
+                  <option >Unidade</option>
+                  <option value="Arcoverde">Arcoverde</option>
+                  <option value="Benfica">Benfica</option>
+                  <option value="Camaragibe">Camaragibe</option>
+                  <option value="Caruaru">Caruaru</option>
+                  <option value="Garanhuns">Garanhuns</option>
+                  <option value="Mata Norte">Mata Norte</option>
+                  <option value="Mata Sul">Mata Sul</option>
+                  <option value="Salgueiro">Salgueiro</option>
+                  <option value="Petrolina">Petrolina</option>
+                  <option value="Santo Amaro">Santo Amaro</option>
+                  <option value="Serra Talhada">Serra Telhada</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Eleicão:</label>
+              <input type="name" class="form-control" id="exampleFormControlInput6" required="required" placeholder="" name="eleicao">
+              
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Colégio eleitoral:</label>
+              <input type="name" class="form-control" id="exampleFormControlInput9" required="required" placeholder="" name="colegio">
+              
+            </div>
+            <div class="form-group form-row">
+              
+              <div class="col">           
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Data de início:</label>
+                  <input type="date" class="form-control" id="exampleFormControlInput5" required="required" placeholder="" name="data-inicio">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Data de fim:</label>
+                <input type="date" class="form-control" id="exampleFormControlInput5" required="required" placeholder="" name="data-fim">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Hora de início:</label>
+                  <input type="time" class="form-control" id="exampleFormControlInput7" required="required" placeholder="" name="hora-inicio">  
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Hora de fim:</label>
+                <input type="time" class="form-control" id="exampleFormControlInput7" required="required" placeholder="" name="hora-fim">  
+                </div>
+              </div>
             </div>
 
             <div class="form-group">
