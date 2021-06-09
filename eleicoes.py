@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, Markup
 from flask_mysqldb import MySQL
-
+import jinja2
 
 app = Flask(__name__)
 
@@ -14,6 +14,8 @@ app.config['MYSQL_DB'] = 'ncti_flask_el'
 
 mysql = MySQL(app)
 
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == "POST" :
@@ -26,8 +28,13 @@ def index():
         cur.execute("INSERT INTO inicial(email, fruta, calda, outro) values(%s,%s,%s,%s)",(emails,fruts,calds,outro))
         mysql.connection.commit()
         cur.close()
-  
+        alert = "../static/alert.js"
+        return render_template('index.html', alert=alert)
+    else :
+        return render_template('index.html')
 
+@app.route('/home')
+def home():
     return render_template('index.html')
 
 
