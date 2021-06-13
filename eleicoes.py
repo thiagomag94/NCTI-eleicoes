@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 import jinja2
 import time
 from flask_mysqldb import MySQL
@@ -59,7 +59,7 @@ def post():
     mysql.connection.commit()
     cur.close()
    
-    return render_template("index.html" )
+    return redirect('/')
 
     
 
