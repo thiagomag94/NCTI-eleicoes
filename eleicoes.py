@@ -17,10 +17,10 @@ app.config['MYSQL_DB'] = 'eleicao2'
 
 mysql = MySQL(app)
 
-alert = '''function Aviso() {
-                    alert("Eleição agendada!")
-                }'''
 
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/getUnidadesByCampus', methods= ['POST'])
 def inicio():
@@ -57,18 +57,15 @@ def post():
     cur = mysql.connection.cursor()
     cur.execute("INSERT INTO principal(eleicao, campus, unidade, matricula, nome_completo, email, nome_comissao, colegio, datainicio, datafim, horainicio, horafim ) values( %s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(eleicao, campus, unidade, matriculas,nome_completo,emails, nome_comissao, colegio, data_inicio, data_fim, hora_inicio, hora_fim))
     mysql.connection.commit()
-
-
     cur.close()
-    return render_template("index.html", alert=alert )
+   
+    return render_template("index.html" )
 
     
 
     
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+
 
 
 

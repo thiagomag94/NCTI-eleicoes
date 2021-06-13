@@ -1,4 +1,7 @@
 
+function Alert(){
+    alert('Consulte o calendário para confirmar se seu agendamento foi feito.')
+}
 function desativaSelect() {
     var select1 = document.getElementById('select1');
     var text = select1.value;
@@ -8,7 +11,7 @@ function desativaSelect() {
     if (text === 'Benfica' || text == 'Santo Amaro' || text == 'Camaragibe') {
         var select2 = document.getElementById('select2');
         select2.removeAttribute("disabled");
-        op1 = document.getElementById('op1')
+        
 
         function load(text){
             $.ajax({
@@ -21,7 +24,11 @@ function desativaSelect() {
                 }
             })
         }
+        
         load(text)
+        
+
+        
     }   
 
         

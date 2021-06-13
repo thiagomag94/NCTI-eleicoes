@@ -4,14 +4,9 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <title>Formulário</title>
-    
-    
-    
     <!--css-->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
@@ -155,10 +150,11 @@
     </style>
   </head>
 
-
-
   <body>
+
+    <!------------------------Meu menu -------------------------------->
     <header>
+      
       <div class="fixed-top">
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary"  style="background-color: rgb(58, 146, 218);">
           <a class="navbar-brand" href="#"><img src="/static/img/Logo-upe.png" width="80" height= "50"></a>
@@ -194,6 +190,7 @@
         </nav>
       </div>
     </header>
+    <!----------Conteudo principal (FORMULÁRIO QUE AGENDA ELEIÇÕES) -------------->
 
     <div class="container">
       <div class="row">
@@ -212,17 +209,18 @@
             </div>
             <div class="form-group">
 
-              <label for="exampleFormControlInput1">Nome completo:</label>
-              <input type="text" class="form-control" id="exampleFormControlInput2" required="required" placeholder="" name="nomecompleto">
+                      <label for="exampleFormControlInput1">Nome completo:</label>
+                      <input type="text" class="form-control" id="exampleFormControlInput2" required="required" placeholder="" name="nomecompleto">
             
             </div>
             <div class="form-group">
-              <label for="exampleFormControlInput1">Email institucional:</label>
-              <input type="email" pattern=".+@upe.br" class="form-control" id="exampleFormControlInput3" required="required" placeholder="@upe.br" name="email">
+                      <label for="exampleFormControlInput1">Email institucional:</label>
+                      <input type="email" pattern=".+@upe.br" class="form-control" id="exampleFormControlInput3" required="required" placeholder="@upe.br" name="email">
             </div>
             <div class="form-group">
-              <label for="exampleFormControlInput1">Nome da comissão:</label>
-              <input type="name" class="form-control" id="exampleFormControlInput4" required="required" placeholder="" name="nomecomissao">
+
+                      <label for="exampleFormControlInput1">Nome da comissão:</label>
+                      <input type="name" class="form-control" id="exampleFormControlInput4" required="required" placeholder="" name="nomecomissao">
             </div>
             <div class="form-group form-row">
               <div class="col">
@@ -248,29 +246,37 @@
                
                   
               </div>
+
               <div class="col">           
                 <label for="exampleFormControlSelect1">Escolha a unidade:</label>
-                <select  class="form-control" id="select2" required="required" name="unidade" disabled >
-                  
-                 <option id="0" >Selecione a unidade</option>
-                 {% for item in unidade_nome %}
-                 <option id="op1" >{{item[0]}}</option>
-                 
-                 
-                 
-                 {% endfor %}
-                  
-                </select>
+
+                <!--ESTE SELECT FOI O DESAFIO DO PROJETO, SENDO IMPLEMENTADA
+                UMA REQUISIÇÃO ASSÍNCRONA COM AJAX. PARA ISSO PRECISEI, ALÉM DE APRENDER
+                O AJAX EM SI, RESOLVER O CONFLITO ENTRE O JQUERY ANTERIORMENTE IMPORTADO 
+                E O JQUERY IMPORTADO PELO BOOTSTRAP (QUE POR PADRÃO É SLIM E POR ISSO
+                NÃO SUPORTA AJAX) -->
+
+                    <select  class="form-control" id="select2" required="required" name="unidade" disabled >
+                    <!-- SINTAXE DO JINJA2-->
+                    <option id="0" >Selecione a unidade</option>
+                    {% for item in unidade_nome %}
+                    <option id="op1" class="pegar-comjs" value="{{item[0]}}" >{{item[0]}}</option>
+                    
+                    
+                    
+                    {% endfor %}
+                      
+                    </select>
               </div>
             </div>
             <div class="form-group">
-              <label for="exampleFormControlInput1">Eleicão:</label>
-              <input type="name" class="form-control" id="exampleFormControlInput6" required="required" placeholder="" name="eleicao">
+                    <label for="exampleFormControlInput1">Eleicão:</label>
+                    <input type="name" class="form-control" id="exampleFormControlInput6" required="required" placeholder="" name="eleicao">
               
             </div>
             <div class="form-group">
-              <label for="exampleFormControlInput1">Colégio eleitoral:</label>
-              <input type="name" class="form-control" id="exampleFormControlInput9" required="required" placeholder="" name="colegio">
+                    <label for="exampleFormControlInput1">Colégio eleitoral:</label>
+                    <input type="name" class="form-control" id="exampleFormControlInput9" required="required" placeholder="" name="colegio">
               
             </div>
             <div class="form-group form-row">
@@ -298,7 +304,7 @@
             </div>
 
             <div class="form-group">
-              <button type="submit" class="btn btn-primary "  onclick="Aviso()">Enviar</button>
+              <button type="submit" class="btn btn-primary " onclick="Alert()">Enviar</button>
             </div>
             
           </form>
@@ -307,29 +313,29 @@
       </div>
     </div>
     
-      <div class="container-fluid bg-primary">
-        <div id="box-1" >
-          <p class="float-left">
-            Designed by 
-            <strong >NCTI - Núcleo de Comunicação e Tecnologia da informação</strong> 
-          </p>
-          <p class="float-right">&copy; Copyright: UPE - <a id="link-footer" href="http://www.upe.br/" target="_blank">Universidade de Pernambuco</a></p>
-        </div>
-        
+    <!--------------------------RODAPÉ------------------------------------->
+    <div class="container-fluid bg-primary">
+      <div id="box-1" >
+        <p class="float-left">
+          Designed by 
+          <strong >NCTI - Núcleo de Comunicação e Tecnologia da informação</strong> 
+        </p>
+        <p class="float-right">&copy; Copyright: UPE - <a id="link-footer" href="http://www.upe.br/" target="_blank">Universidade de Pernambuco</a></p>
       </div>
-    
       
+    </div>
     
-    
-
-
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     
-    <scrip src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></scrip>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
     <script src="../static/main.js"></script>
-    
-   <script> {{ alert| safe}} </script>
+      
+    <!-----RECEBE DO BACKEND FLASK UMA STRING CONTENDO UMA FUNÇÃO JS PARA AVISAR QUE 
+    OS DADOS FORAM INSERIDOS NO BANCO COM SUCESSO-->
+
+    <script id= "alerta">  </script>
     
   </body>
 </html>
